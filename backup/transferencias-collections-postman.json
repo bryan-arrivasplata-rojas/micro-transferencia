@@ -1,0 +1,491 @@
+{
+	"info": {
+		"_postman_id": "fb7cb3b9-554a-4bbc-bc78-13de41765697",
+		"name": "Transaccion_banco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10949300"
+	},
+	"item": [
+		{
+			"name": "1. Transferencia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cuentaOrigen\": \"001-000001\",\r\n  \"cuentaDestino\": \"001-000002\",\r\n  \"monto\": 100.10,\r\n  \"moneda\": \"PEN\",\r\n  \"descripcion\": \"Prueba de transferencia\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/transferencia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transferencia"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1. Transferencia - OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuentaOrigen\": \"001-000001\",\r\n  \"cuentaDestino\": \"001-000002\",\r\n  \"monto\": 100.10,\r\n  \"moneda\": \"PEN\",\r\n  \"descripcion\": \"Prueba de transferencia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transferencia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transferencia"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 01:57:26 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"idTransferencia\": 5,\n    \"estado\": \"EXITOSA\",\n    \"fecha\": \"2025-06-04\"\n}"
+				},
+				{
+					"name": "1. Transferencia - Origen Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuentaOrigen\": \"001-000005\",\r\n  \"cuentaDestino\": \"001-000002\",\r\n  \"monto\": 100.10,\r\n  \"moneda\": \"PEN\",\r\n  \"descripcion\": \"Prueba de transferencia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transferencia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transferencia"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 05:08:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Cuenta de origen no encontrada\"\n}"
+				},
+				{
+					"name": "1. Transferencia - Destino Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuentaOrigen\": \"001-000001\",\r\n  \"cuentaDestino\": \"001-000005\",\r\n  \"monto\": 100.10,\r\n  \"moneda\": \"PEN\",\r\n  \"descripcion\": \"Prueba de transferencia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transferencia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transferencia"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 05:09:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Cuenta de destino no encontrada\"\n}"
+				},
+				{
+					"name": "1. Transferencia - Saldo Insuficiente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cuentaOrigen\": \"001-000001\",\r\n  \"cuentaDestino\": \"001-000002\",\r\n  \"monto\": 100000.10,\r\n  \"moneda\": \"PEN\",\r\n  \"descripcion\": \"Prueba de transferencia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/transferencia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transferencia"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 05:11:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Saldo insuficiente en la cuenta de origen\"\n}"
+				}
+			]
+		},
+		{
+			"name": "2. ConsultarSaldo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cuenta/001-000001/saldo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cuenta",
+						"001-000001",
+						"saldo"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "2. ConsultarSaldo - OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/cuenta/001-000005/saldo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuenta",
+								"001-000005",
+								"saldo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 05:09:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"cuenta\": \"001-000001\",\n    \"saldo\": 9799.8,\n    \"moneda\": \"PEN\"\n}"
+				},
+				{
+					"name": "2. ConsultarSaldo - Cuenta Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/cuenta/001-000005/saldo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuenta",
+								"001-000005",
+								"saldo"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 05:10:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Cuenta no encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "3. Consultar Transferencias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/transferencia/001-000001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transferencia",
+						"001-000001"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "3. Consultar Transferencias - OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/transferencia/001-000001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transferencia",
+								"001-000001"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 05:10:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idTransferencia\": 1,\n        \"cuentaOrigen\": \"001-000001\",\n        \"cuentaDestino\": \"001-000002\",\n        \"estado\": \"EXITOSA\",\n        \"monto\": 100,\n        \"fecha\": \"2025-06-04T20:04:57\"\n    },\n    {\n        \"idTransferencia\": 2,\n        \"cuentaOrigen\": \"001-000002\",\n        \"cuentaDestino\": \"001-000001\",\n        \"estado\": \"EXITOSA\",\n        \"monto\": 50,\n        \"fecha\": \"2025-06-04T20:04:57\"\n    },\n    {\n        \"idTransferencia\": 4,\n        \"cuentaOrigen\": \"001-000001\",\n        \"cuentaDestino\": \"001-000002\",\n        \"estado\": \"EXITOSA\",\n        \"monto\": 100.1,\n        \"fecha\": \"2025-06-04T20:53:23\"\n    },\n    {\n        \"idTransferencia\": 5,\n        \"cuentaOrigen\": \"001-000001\",\n        \"cuentaDestino\": \"001-000002\",\n        \"estado\": \"EXITOSA\",\n        \"monto\": 100.1,\n        \"fecha\": \"2025-06-04T20:57:26\"\n    }\n]"
+				},
+				{
+					"name": "3. Consultar Transferencias - Cuenta Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/transferencia/001-000005",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transferencia",
+								"001-000005"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jun 2025 05:10:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"La cuenta especificada no existe\"\n}"
+				}
+			]
+		}
+	]
+}
